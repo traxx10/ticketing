@@ -190,6 +190,10 @@
       g) After tests pass, you merge the PR into master branch
       h) Because master branch has changed, github builds and deploys.
 
+      GITHUB ACTIONS
+        - on: When we want to run this workflow
+        - ci: It makes sure that after a test is completed, it exits automatically
+
       
 
 `;
