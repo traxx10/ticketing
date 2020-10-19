@@ -194,6 +194,8 @@
         - on: When we want to run this workflow
         - ci: It makes sure that after a test is completed, it exits automatically
 
+        git checkout -b "branch name"
+
       
 
 `;
