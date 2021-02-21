@@ -196,6 +196,9 @@
 
         git checkout -b "branch name"
 
-      
-
+      DEPLOYING ON DO
+        - create access token
+        - doctl kubernetes cluster kubeconfig save <cluster_name>
+        - kubectl config view (list all contexts)
+        - kubectl config use-context <context_name>
 `;

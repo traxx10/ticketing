@@ -20,7 +20,7 @@
         NODE: It is a virtual machine that will run our containers.
         POD: More or Less a running container.  Technically, a pod can run multiple containers(not in this course)
         DEPLOYMENT: Monitors a set of pods, make sure they are running and restarts them if they crash.
-        Service: Provides an easy-to-remember URL to access a running container.
+        SERVICE: Provides an easy-to-remember URL to access a running container.
 
       WHAT DOES THE CONFIG FILE DO?
         1) It tells kurbenete about the different deployments, pods and services (referred to as Objects) that we want to create.
