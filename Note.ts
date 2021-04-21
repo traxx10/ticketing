@@ -43,7 +43,6 @@
         CREATING A SECRET
           a) kubectl create secret *generic* *jwt-secret* --from-literal=*JWT_SECRET=asdf*
              kubectl create secret generic jwt-secret --from-literal=JWT_SECRET=asdf
-
             i) generic - It is a type of secret that is all purpose
             ii) jwt-secret - it is the name of the secret and it is used for loggin purposes. Same way we create names for deployments.
             iii) jwt=asdf - Name and value pair of the secret we are trying to create.
@@ -144,7 +143,7 @@
     NATS DEPL FILE TERMINOLOGY AND NATS HEALTH CHECK
       http://localhost:8222/streaming/channelsz?subs=1 - For opening nats server.
       
-      a) hb - It stands for heartbeat, it is a little request that nats is going to send to its clients every so seconds. its is a health check.
+      a) hb - It stands for heartbeat, it is a little request that nats is going to send to its clients every so seconds. it is a health check.
       b) hbi - It is how OFTEN nats is going to make a request to its clients.
       b) hbt - It is how LONG each client has to respond.
       c) hbf - It is the number of times that each request is going to fail before nats server can decide that each client has failed and won't 
@@ -160,10 +159,12 @@
 
       THREE OPTIONS THAT MAKE NATS WORK WELL.
         QUEUE GROUP - Makes sure we dont accidentally dump all the emitted events if the service goes offline and also make sure 
-                      that all emitted events go only to one instance of all the listeners.
+                      that all emitted events go only to one instance of all the listeners. We can have multiple queuegroups associated with one
+                      channel.
+                      It also makes sure that multiple instances of the service are not all going to receive the same event.
         DURABLE SUBSCRIPTION - is to keep track of all the different events that has been processed and gone to the queue group.
         SET DELIVER ALL AVAILABLE - Makes sure that when a service comes back online that the events are re delivered. 
-
+      
 
     MOCKING(FAKING) IMPORTS WITH JEST
       a) Find the file that we want to mock
@@ -201,4 +202,7 @@
         - doctl kubernetes cluster kubeconfig save <cluster_name>
         - kubectl config view (list all contexts)
         - kubectl config use-context <context_name>
+
+      DELETING ALL PODS
+        - kubectl delete --all pods --namespace=foo
 `;

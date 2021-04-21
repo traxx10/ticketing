@@ -68,6 +68,7 @@ ticketSchema.statics.findByEvent = (event: { id: string; version: number }) => {
 // Document Method
 // Run Query to look at all orders. Find an order where the ticket we just found *and* the status is *not* cancelled
 ticketSchema.methods.isReserved = async function () {
+  // this === the ticket document that we just called 'isReserved' on
   const existingOrder = await Order.findOne({
     ticket: this,
     status: {
@@ -79,6 +80,7 @@ ticketSchema.methods.isReserved = async function () {
     },
   });
 
+  // If it is equal to null, it would flip it to true and then false
   return !!existingOrder;
 };
 
